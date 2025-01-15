@@ -1,4 +1,4 @@
-class CreateContestsProblemsJoinTable < ActiveRecord::Migration
+class CreateContestsProblemsJoinTable < ActiveRecord::Migration[4.2]
   def self.up
     create_table :contests_problems, :id => false do |t|
       t.integer :contest_id

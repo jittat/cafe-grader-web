@@ -1,4 +1,4 @@
-class CreateContests < ActiveRecord::Migration
+class CreateContests < ActiveRecord::Migration[4.2]
   def self.up
     create_table :contests do |t|
       t.string :title

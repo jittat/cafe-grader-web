@@ -1,4 +1,4 @@
-class CreateGraderProcesses < ActiveRecord::Migration
+class CreateGraderProcesses < ActiveRecord::Migration[4.2]
   def self.up
     create_table :grader_processes do |t|
       t.column :ip, :string, :limit => 20

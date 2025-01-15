@@ -1,4 +1,4 @@
-class CreateSubmissions < ActiveRecord::Migration
+class CreateSubmissions < ActiveRecord::Migration[4.2]
   def self.up
     create_table :submissions do |t|
       t.column :user_id, :integer

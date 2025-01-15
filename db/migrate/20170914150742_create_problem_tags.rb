@@ -1,4 +1,4 @@
-class CreateProblemTags < ActiveRecord::Migration
+class CreateProblemTags < ActiveRecord::Migration[4.2]
   def change
     create_table :problems_tags do |t|
       t.references :problem, index: true, foreign_key: true

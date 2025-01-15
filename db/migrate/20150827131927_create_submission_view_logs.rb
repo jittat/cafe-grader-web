@@ -1,4 +1,4 @@
-class CreateSubmissionViewLogs < ActiveRecord::Migration
+class CreateSubmissionViewLogs < ActiveRecord::Migration[4.2]
   def change
     create_table :submission_view_logs do |t|
       t.integer :user_id

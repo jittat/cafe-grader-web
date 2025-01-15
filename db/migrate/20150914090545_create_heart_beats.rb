@@ -1,4 +1,4 @@
-class CreateHeartBeats < ActiveRecord::Migration
+class CreateHeartBeats < ActiveRecord::Migration[4.2]
   def change
     create_table :heart_beats do |t|
       t.column 'user_id',:integer

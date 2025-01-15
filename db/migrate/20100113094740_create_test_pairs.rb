@@ -1,4 +1,4 @@
-class CreateTestPairs < ActiveRecord::Migration
+class CreateTestPairs < ActiveRecord::Migration[4.2]
   def self.up
     create_table :test_pairs do |t|
       t.integer :problem_id

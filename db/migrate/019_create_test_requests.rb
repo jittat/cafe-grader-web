@@ -1,4 +1,4 @@
-class CreateTestRequests < ActiveRecord::Migration
+class CreateTestRequests < ActiveRecord::Migration[4.2]
   def self.up
     create_table :test_requests do |t|
       t.column :user_id, :integer

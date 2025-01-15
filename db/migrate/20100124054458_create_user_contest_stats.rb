@@ -1,4 +1,4 @@
-class CreateUserContestStats < ActiveRecord::Migration
+class CreateUserContestStats < ActiveRecord::Migration[4.2]
   def self.up
     create_table :user_contest_stats do |t|
       t.integer :user_id
