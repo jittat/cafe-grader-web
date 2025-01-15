@@ -66,7 +66,7 @@ class ContestsController < ApplicationController
     @contest = Contest.find(params[:id])
 
     respond_to do |format|
-      if @contest.update_attributes(contests_params)
+      if @contest.update(contests_params)
         flash[:notice] = 'Contest was successfully updated.'
         format.html { redirect_to(@contest) }
         format.xml  { head :ok }

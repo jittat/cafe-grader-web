@@ -65,7 +65,7 @@ class AnnouncementsController < ApplicationController
     @announcement = Announcement.find(params[:id])
 
     respond_to do |format|
-      if @announcement.update_attributes(announcement_params)
+      if @announcement.update(announcement_params)
         flash[:notice] = 'Announcement was successfully updated.'
         format.html { redirect_to(@announcement) }
         format.js   {}
@@ -80,7 +80,7 @@ class AnnouncementsController < ApplicationController
 
   def toggle
     @announcement = Announcement.find(params[:id])
-    @announcement.update_attributes( published:  !@announcement.published? )
+    @announcement.update( published:  !@announcement.published? )
     respond_to do |format|
       format.js { render partial: 'toggle_button',
                   locals: {button_id: "#announcement_toggle_#{@announcement.id}",button_on: @announcement.published? } }
@@ -89,7 +89,7 @@ class AnnouncementsController < ApplicationController
 
   def toggle_front
     @announcement = Announcement.find(params[:id])
-    @announcement.update_attributes( frontpage:  !@announcement.frontpage? )
+    @announcement.update( frontpage:  !@announcement.frontpage? )
     respond_to do |format|
       format.js { render partial: 'toggle_button',
                   locals: {button_id: "#announcement_toggle_front_#{@announcement.id}",button_on: @announcement.frontpage? } }

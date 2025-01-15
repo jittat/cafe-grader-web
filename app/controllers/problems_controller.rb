@@ -72,7 +72,7 @@ class ProblemsController < ApplicationController
       end
       @problem.description = @description
     elsif @description
-      if !@description.update_attributes(description_params)
+      if !@description.update(description_params)
         flash[:notice] = 'Error saving description'
         render :action => 'edit' and return
       end
@@ -81,7 +81,7 @@ class ProblemsController < ApplicationController
         flash[:notice] = 'Error: Uploaded file is not PDF'
         render :action => 'edit' and return
     end
-    if @problem.update_attributes(problem_params)
+    if @problem.update(problem_params)
       flash[:notice] = 'Problem was successfully updated.'
       unless params[:file] == nil or params[:file] == ''
         flash[:notice] = 'Problem was successfully updated and a new PDF file is uploaded.'
@@ -114,7 +114,7 @@ class ProblemsController < ApplicationController
 
   def toggle
     @problem = Problem.find(params[:id])
-    @problem.update_attributes(available: !(@problem.available) )
+    @problem.update(available: !(@problem.available) )
     respond_to do |format|
       format.js { }
     end
@@ -122,7 +122,7 @@ class ProblemsController < ApplicationController
 
   def toggle_test
     @problem = Problem.find(params[:id])
-    @problem.update_attributes(test_allowed: !(@problem.test_allowed?) )
+    @problem.update(test_allowed: !(@problem.test_allowed?) )
     respond_to do |format|
       format.js { }
     end
@@ -130,7 +130,7 @@ class ProblemsController < ApplicationController
 
   def toggle_view_testcase
     @problem = Problem.find(params[:id])
-    @problem.update_attributes(view_testcase: !(@problem.view_testcase?) )
+    @problem.update(view_testcase: !(@problem.view_testcase?) )
     respond_to do |format|
       format.js { }
     end

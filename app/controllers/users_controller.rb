@@ -144,7 +144,7 @@ class UsersController < ApplicationController
 
   def toggle_activate
     @user = User.find(params[:id])
-    @user.update_attributes( activated:  !@user.activated? )
+    @user.update( activated:  !@user.activated? )
     respond_to do |format|
       format.js { render partial: 'toggle_button',
                   locals: {button_id: "#toggle_activate_user_#{@user.id}",button_on: @user.activated? } }
@@ -153,7 +153,7 @@ class UsersController < ApplicationController
 
   def toggle_enable
     @user = User.find(params[:id])
-    @user.update_attributes( enabled:  !@user.enabled? )
+    @user.update( enabled:  !@user.enabled? )
     respond_to do |format|
       format.js { render partial: 'toggle_button',
                   locals: {button_id: "#toggle_enable_user_#{@user.id}",button_on: @user.enabled? } }
