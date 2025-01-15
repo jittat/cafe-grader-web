@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 #rails
-gem 'rails', '~>5.2'
+gem 'rails', '~>6.0'
 gem 'activerecord-session_store'
 gem 'puma'
 
@@ -45,7 +45,7 @@ gem 'jbuilder', '~> 2.5'
 
 
 #in-place editor
-gem 'best_in_place', '~> 3.0.1'
+gem 'best_in_place', git: "https://github.com/mmotherwell/best_in_place"
 
 # jquery addition
 gem 'jquery-rails'
