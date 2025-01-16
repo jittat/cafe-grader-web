@@ -20,7 +20,7 @@ class LoginTest < ActionDispatch::IntegrationTest
   end
 
   test "normal user login in single_user mode" do
-    GraderConfiguration.find_by(key: GraderConfiguration::SINGLE_USER_KEY).update_attributes(value: 'true')
+    GraderConfiguration.find_by(key: GraderConfiguration::SINGLE_USER_KEY).update(value: 'true')
     GraderConfiguration.reload
     get root_path
     assert_response :success
@@ -30,7 +30,7 @@ class LoginTest < ActionDispatch::IntegrationTest
   end
 
   test "root login in in single_user mode" do
-    GraderConfiguration.find_by(key: GraderConfiguration::SINGLE_USER_KEY).update_attributes(value: 'true')
+    GraderConfiguration.find_by(key: GraderConfiguration::SINGLE_USER_KEY).update(value: 'true')
     GraderConfiguration.reload
     get root_path
     assert_response :success
