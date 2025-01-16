@@ -34,7 +34,7 @@ USAGE
 end
 
 def initialize_temp_dir
-  if !FileTest.exists? TEMP_DIR
+  if !FileTest.exist? TEMP_DIR
     Dir.mkdir TEMP_DIR
   end
 end

@@ -60,9 +60,9 @@ class Visitor
 
   def cleanup
     trial = 0
-    while FileTest.exists?(@cookies_fname)
+    while FileTest.exist?(@cookies_fname)
       File.delete(@cookies_fname) 
-      if FileTest.exists?(@cookies_fname)
+      if FileTest.exist?(@cookies_fname)
         # wait until system returns
         puts "STILL HERE"
         sleep 1
@@ -71,9 +71,9 @@ class Visitor
       end
     end 
     
-    while FileTest.exists?(@output_fname)
+    while FileTest.exist?(@output_fname)
       File.delete(@output_fname)
-      if FileTest.exists?(@output_fname)
+      if FileTest.exist?(@output_fname)
         # wait until system returns
         sleep 1
         trial += 1

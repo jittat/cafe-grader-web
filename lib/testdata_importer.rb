@@ -59,12 +59,12 @@ class TestdataImporter
     ext = TestdataImporter.long_ext(tempfile.original_filename)
 
     extract_dir = File.join(GraderScript.raw_dir, @problem.name)
-    if File.exists? extract_dir
+    if File.exist? extract_dir
       backup_count = 0
       begin
         backup_count += 1
         backup_dirname = "#{extract_dir}.backup.#{backup_count}"
-      end while File.exists? backup_dirname
+      end while File.exist? backup_dirname
       File.rename(extract_dir, backup_dirname)
     end
     Dir.mkdir extract_dir
@@ -109,11 +109,11 @@ class TestdataImporter
 
   def import_test_pairs(dirname)
     test_num = 1
-    while FileTest.exists? "#{dirname}/#{test_num}.in"
+    while FileTest.exist? "#{dirname}/#{test_num}.in"
       in_filename = "#{dirname}/#{test_num}.in"
       sol_filename = "#{dirname}/#{test_num}.sol"
 
-      break if not FileTest.exists? sol_filename
+      break if not FileTest.exist? sol_filename
 
       test_pair = TestPair.new(:input => open(in_filename).read,
                                :solution => open(sol_filename).read,
@@ -158,13 +158,13 @@ class TestdataImporter
 
       @problem.save if not @problem.id
       out_dirname = "#{Problem.download_file_basedir}/#{@problem.id}"
-      if not FileTest.exists? out_dirname
+      if not FileTest.exist? out_dirname
         Dir.mkdir out_dirname
       end
 
       out_filename = "#{out_dirname}/#{@problem.name}.pdf"
 
-      if FileTest.exists? out_filename
+      if FileTest.exist? out_filename
         File.delete out_filename
       end
 
