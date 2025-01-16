@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     base_filename = File.basename("#{base_name}.#{params[:ext]}")
     filename = "#{Problem.download_file_basedir}/#{base_filename}"
 
-    if !FileTest.exists?(filename)
+    if !FileTest.exist?(filename)
       redirect_to :action => 'index' and return
     end
 
@@ -35,7 +35,7 @@ class TasksController < ApplicationController
     base_filename = File.basename("#{base_name}.#{params[:ext]}")
     filename = "#{Problem.download_file_basedir}/#{params[:id]}/#{base_filename}"
 
-    if !FileTest.exists?(filename)
+    if !FileTest.exist?(filename)
       flash[:notice] = 'File does not exists'
       redirect_to :action => 'index' and return
     end

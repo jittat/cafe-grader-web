@@ -245,7 +245,7 @@ class ReportController < ApplicationController
     #process user_id
     @by_lang.each do |lang,prop|
       prop.each do |k,v|
-        v[:user] = User.exists?(v[:user_id]) ? User.find(v[:user_id]).full_name : "(NULL)"
+        v[:user] = User.exist?(v[:user_id]) ? User.find(v[:user_id]).full_name : "(NULL)"
       end
     end
 

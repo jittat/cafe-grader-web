@@ -145,7 +145,7 @@ class MainController < ApplicationController
                                    @submission.problem.name,
                                    @submission.id,
                                    case_num)
-    if !FileTest.exists?(out_filename)
+    if !FileTest.exist?(out_filename)
       flash[:notice] = 'Output not found.'
       redirect_to :action => 'list' and return
     end
@@ -278,13 +278,13 @@ class MainController < ApplicationController
   def read_grading_result(user_name, problem_name, submission_id, case_num)
     dir = grading_result_dir(user_name,problem_name, submission_id, case_num)
     result_file_name = "#{dir}/result"
-    if !FileTest.exists?(result_file_name)
+    if !FileTest.exist?(result_file_name)
       return {:num => case_num, :msg => 'program did not run'}
     else
       results = File.open(result_file_name).readlines
       run_stat = extract_running_stat(results)
       output_filename = "#{dir}/output.txt"
-      if FileTest.exists?(output_filename)
+      if FileTest.exist?(output_filename)
         output_file = true
         output_size = File.size(output_filename)
       else

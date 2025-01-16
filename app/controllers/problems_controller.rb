@@ -86,12 +86,12 @@ class ProblemsController < ApplicationController
       unless params[:file] == nil or params[:file] == ''
         flash[:notice] = 'Problem was successfully updated and a new PDF file is uploaded.'
         out_dirname = "#{Problem.download_file_basedir}/#{@problem.id}"
-        if not FileTest.exists? out_dirname
+        if not FileTest.exist? out_dirname
           Dir.mkdir out_dirname
         end
 
         out_filename = "#{out_dirname}/#{@problem.name}.pdf"
-        if FileTest.exists? out_filename
+        if FileTest.exist? out_filename
           File.delete out_filename
         end
 

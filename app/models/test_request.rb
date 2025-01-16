@@ -98,14 +98,14 @@ class TestRequest < Task
     problem_name = TestRequest.name_of(problem)
     begin
       tmpname = TEST_REQUEST_INPUT_FILE_DIR + "/#{user.login}/#{problem_name}/#{rand(10000)}"
-    end while File.exists?(tmpname)
+    end while File.exist?(tmpname)
     tmpname
   end
 
   def self.save_input_file(tempfile, user, problem)
     new_file_name = random_input_file_name(user,problem)
     dirname = File.dirname(new_file_name)
-    FileUtils.mkdir_p(File.dirname(new_file_name)) if !File.exists?(dirname)
+    FileUtils.mkdir_p(File.dirname(new_file_name)) if !File.exist?(dirname)
 
     # when the user did not submit any file
     return nil if tempfile==""
@@ -124,7 +124,7 @@ class TestRequest < Task
   def self.save_additional_file(tempfile,dir)
     new_file_name = "#{dir}/#{tempfile.original_filename}"
     dirname = File.dirname(new_file_name)
-    FileUtils.mkdir_p(File.dirname(new_file_name)) if !File.exists?(dirname)
+    FileUtils.mkdir_p(File.dirname(new_file_name)) if !File.exist?(dirname)
 
     # when the user did not submit any file
     return nil if tempfile==""
