@@ -16,7 +16,7 @@ class SubmissionsController < ApplicationController
     else
       @problem = Problem.find_by_id(params[:problem_id])
       if (@problem == nil) or (not @problem.available)
-        redirect_to main_list_path
+        redirect_to list_main_path
         flash[:notice] = 'Error: submissions for that problem are not viewable.'
         return
       end

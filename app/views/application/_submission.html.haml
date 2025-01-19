@@ -10,7 +10,7 @@
   %td
     = submission.source_filename
     = " (#{submission.language.pretty_name}) "
-    = link_to('[load]',{:action => 'source', :id => submission.id})
+    = link_to('[load]',{:action => 'download', :id => submission.id})
   %td
     - if submission.graded_at
       = "Graded at #{format_short_time(submission.graded_at)}." 
